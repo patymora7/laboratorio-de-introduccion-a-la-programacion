@@ -93,7 +93,7 @@ pip install numpy
 
 ```python
 import numpy as np
-print(np.array([1, 2, 3]))
+np. (al poner np. en el archivo te va a mostrar todas las funciones disponibles del paquete)
 ```
 
 3. Ejecutar:
