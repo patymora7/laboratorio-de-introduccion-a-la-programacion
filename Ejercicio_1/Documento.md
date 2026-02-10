@@ -1,59 +1,45 @@
-# ENTORNO VIRTUAL CON PYTHON
+Python con entorno virtual (muy básico)
+1. Verificar Python
 
-En esta práctica se configurará un espacio de trabajo en Python usando Visual Studio Code y un entorno virtual.
+Abrir la terminal y escribir:
 
--Paso 1. Editor de código
+py --version
 
-Para programar se utilizará Visual Studio Code, el cual debe estar instalado previamente desde su sitio oficial.
+2. Crear carpeta
 
-Paso 2. Carpeta de trabajo
+Crear una carpeta llamada:
 
-Crear una carpeta nueva en Documentos.
-
-Asignarle el nombre: Practica_Python.
-
-Paso 3. Abrir el proyecto
-
-Abrir Visual Studio Code.
-
-Seleccionar Open Folder.
-
-Abrir la carpeta Practica_Python.
-
-Paso 4. Preparar el entorno virtual
-
-Abrir la terminal desde el menú Terminal.
-
-Escribir el siguiente comando para crear el entorno:
-
-python -m venv entorno
+python_practica
 
 
-Activar el entorno con:
+Abrirla en Visual Studio Code.
 
-entorno\Scripts\activate
+3. Crear entorno virtual
+
+En la terminal de VS Code:
+
+py -m venv env
+
+4. Activar entorno
+env\Scripts\activate
 
 
-Cuando esté activo, se verá el nombre del entorno al inicio de la terminal.
+Debe aparecer:
 
-Paso 5. Probar Python
+(env)
 
-Crear un archivo llamado prueba.py.
-
-Instalar la librería necesaria:
-
+5. Instalar NumPy
 pip install numpy
 
+6. Probar
 
-Escribir el siguiente código:
+Crear main.py y escribir:
 
 import numpy as np
+print(np.array([1, 2, 3]))
 
-datos = np.array([10, 20, 30])
-print(datos)
 
-Paso 6. Cierre de la práctica
+Ejecutar:
 
-El entorno virtual permite trabajar de forma ordenada y evitar problemas entre proyectos.
-Esta configuración será utilizada en prácticas posteriores.
+python main.py
 
