@@ -1,11 +1,59 @@
-# como crear entorno virtual 
-Un entorno virtual es es un espacio digital simulado que permite a los usuarios interactuar con objetos y herramientas en un mundo digital, ya sea a través de la realidad virtual, la realidad aumentada o plataformas de software
-#primero paso
-- verificar que si esta instalado python 
--verificar si esta vinculado a visual code
-- al tenerlo instalado debe aparecer la version que descargaste en python
-#segundo paso
-  - crear carpeta en github que se vinculara a visual code 
-    #tercer paso
-           para empezar a trabajar en el entorno el primer paso es hacer una carpeta en visual code
+Práctica 1: Uso de Python con Entorno Virtual
+
+En esta práctica se configurará un espacio de trabajo en Python usando Visual Studio Code y un entorno virtual.
+
+Paso 1. Editor de código
+
+Para programar se utilizará Visual Studio Code, el cual debe estar instalado previamente desde su sitio oficial.
+
+Paso 2. Carpeta de trabajo
+
+Crear una carpeta nueva en Documentos.
+
+Asignarle el nombre: Practica_Python.
+
+Paso 3. Abrir el proyecto
+
+Abrir Visual Studio Code.
+
+Seleccionar Open Folder.
+
+Abrir la carpeta Practica_Python.
+
+Paso 4. Preparar el entorno virtual
+
+Abrir la terminal desde el menú Terminal.
+
+Escribir el siguiente comando para crear el entorno:
+
+python -m venv entorno
+
+
+Activar el entorno con:
+
+entorno\Scripts\activate
+
+
+Cuando esté activo, se verá el nombre del entorno al inicio de la terminal.
+
+Paso 5. Probar Python
+
+Crear un archivo llamado prueba.py.
+
+Instalar la librería necesaria:
+
+pip install numpy
+
+
+Escribir el siguiente código:
+
+import numpy as np
+
+datos = np.array([10, 20, 30])
+print(datos)
+
+Paso 6. Cierre de la práctica
+
+El entorno virtual permite trabajar de forma ordenada y evitar problemas entre proyectos.
+Esta configuración será utilizada en prácticas posteriores.
 
