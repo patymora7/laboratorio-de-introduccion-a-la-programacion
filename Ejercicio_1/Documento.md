@@ -1,8 +1,8 @@
-Práctica 1: Uso de Python con Entorno Virtual
+# ENTORNO VIRTUAL CON PYTHON
 
 En esta práctica se configurará un espacio de trabajo en Python usando Visual Studio Code y un entorno virtual.
 
-Paso 1. Editor de código
+-Paso 1. Editor de código
 
 Para programar se utilizará Visual Studio Code, el cual debe estar instalado previamente desde su sitio oficial.
 
