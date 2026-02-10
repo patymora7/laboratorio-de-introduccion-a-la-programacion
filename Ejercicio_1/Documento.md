@@ -104,9 +104,12 @@ pip install numpy
 ```python
 import numpy as np
 np. (al poner np. en el archivo te va a mostrar todas las funciones disponibles del paquete)
-<img width="937" height="605" alt="image" src="https://github.com/user-attachments/assets/87a3e791-bd64-4146-a651-14d0c3b5027a" />
+
 
 ```
+<img width="937" height="605" alt="Captura de pantalla 2026-02-10 114826" src="https://github.com/user-attachments/assets/aa18e154-d11b-4ef0-9d99-51fcbb83d3f1" />
+
+
 
 3. Ejecutar:
 
