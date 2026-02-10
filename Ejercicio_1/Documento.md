@@ -1,4 +1,4 @@
-                                                          # como crear entorno virtual 
+# como crear entorno virtual 
 Un entorno virtual es es un espacio digital simulado que permite a los usuarios interactuar con objetos y herramientas en un mundo digital, ya sea a través de la realidad virtual, la realidad aumentada o plataformas de software.
              primero paso
            - verificar que si esta instalado python 
