@@ -13,11 +13,11 @@ intentos=0
 Esta variable que utilizaremos servira para contar cuántas veces el usuario se equivoca.
 
 
-## segundo paso
+## Segundo paso
 
-Se utiliza:
-
-while intentos < 3
+```
+while (intentos<3):
+```
 este se pondrá para iniciar un bucle, un bucle es una orden para que se repita mientras los intentos sean menores a 3 
 
 
@@ -34,57 +34,72 @@ contraseña = input("contraseña: ")
 
 Esto permitara que el usuario escriba sus datos desde el teclado.
 
----
+## Cuarto paso
 
-## 4️⃣ Validaciones del usuario
-
-El programa verifica que:
-- El usuario no esté vacío.
-- No contenga espacios.
+con estas comillas ("") se dara la orden de que el usuario no este vacio y que no se contengan espacios 
 
 Si no cumple estas condiciones, se suma un intento.
 
----
 
-## 5️⃣ Validaciones de la contraseña
+```
+ if usuario =="":
+        print("usuario vacio")
+        intentos += 1
+```
 
-El sistema revisa que:
-- Tenga mínimo 8 caracteres.
-- No sea solo números.
-- No sea solo letras.
+## Quinto paso 
+ esto se pondrá para dar el orden de que no se permitirán espacios ya que chr(32) en el código ascci significa espacio
+ 
+```
+ elif usuario == chr(32)
+```
 
-Estas reglas ayudan a que la contraseña sea más segura.
+## sexto paso 
+esto se pondrá por  len se utilizara para contar los caracteres agregando la que la contraseña tengas menos de 8 caracteres
 
----
+```
+ elif len(contraseña) < 8:
+        print("la contraseña es minima a 8 carecteres")
+        intentos += 1
+```
 
-## 6️⃣ Verificación de credenciales
 
-El programa compara los datos ingresados con los datos correctos:
 
-Usuario: admin  
-Contraseña: Admin2026  
+## septimo paso 
+El isdigit es utilizado para que se verifique que todos números pero no será valida puros números
 
-Si coinciden, muestra "Acceso permitido" y termina el ciclo.
+```
+elif contraseña.isdigit():
+        print("la contraseña no puede ser solo numeros")
+        intentos += 1
+```
 
----
+## octavo paso 
+Este verificara si todos son letras en caso de que sea será invalida en el siguiente 
 
-## 7️⃣ Control de intentos
+```
+elif contraseña.isalpha():
+        print("la contraseña no puede ser solo letras")
+        intentos += 1
+```
+## noveno paso
+el and se pondrá para que ambas condiciones se cumplan ya que admin y Admin2026 será el usuario y contraseña correctos después se pondrá break para cerrar el bucle que iniciamos con while después de cerrar el bucle 
 
-Cada vez que el usuario comete un error:
-- Se suma 1 a la variable `intentos`.
-- Se muestran los intentos restantes.
+```
+elif usuario =="admin" and contraseña == "Admin2026":
+        print("acceso permitido")
+        break
+```
+## decimo paso
+Este bloque sirve para controlar los errores y limitar el acceso a solo 3 intentos.
+```
+ else:
+        intentos +=1
 
-Si los intentos llegan a 3, el programa finaliza.
+    print("acceso denegado, intentos restantes:", 3-intentos )
+```
 
----
+# Conclusión
 
-# ✅ Conclusión
-
-Este programa demuestra el uso de:
-
-- Variables para almacenar información.
-- Estructuras condicionales (`if`, `elif`) para validar datos.
-- Ciclos (`while`) para repetir procesos.
-- Control de intentos para limitar accesos.
-
-En conclusión, es un ejemplo práctico de cómo implementar un sistema básico de autenticación en Python, aplicando estructuras fundamentales de programación.
+Este programa permite controlar el acceso con usuario y contraseña ,Usando condiciones y un contador para limitar los intentos a solo tres 
+También verifica que la contraseña cumpla con reglas básicas de seguridad tambien para saber ciclos, validaciones y condiciones 
