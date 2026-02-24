@@ -1,47 +1,32 @@
-# 🖥️ Explicación del Programa – Control de Acceso
+# Explicación del Programa 
 
-## 📌 Introducción
+## esto se utilizara para crear un control de acceso 
 
-El siguiente programa simula un sistema básico de inicio de sesión.
-Su función principal es validar un usuario y una contraseña,
-permitiendo únicamente tres intentos antes de bloquear el acceso.
+## paso a paso 
 
-Este tipo de estructura es común en sistemas reales para proteger información.
-
----
-
-# 🔎 Desarrollo del Programa
-
-## 1️⃣ Variable de control
-
-Se crea la variable:
+Se empiezan creando la variable:
 
 intentos = 0
 
-Esta variable sirve para contar cuántas veces el usuario se equivoca.
+Esta variable que utilizaremos servira para contar cuántas veces el usuario se equivoca.
 
----
 
-## 2️⃣ Ciclo de repetición
+## siguiente paso
 
 Se utiliza:
 
 while intentos < 3
+este se pondrá para iniciar un bucle, un bucle es una orden para que se repita mientras los intentos sean menores a 3 
 
-Este ciclo permite que el programa se repita hasta que:
-- El usuario ingrese correctamente los datos.
-- O se alcancen los 3 intentos máximos.
 
----
+## tercer paso 
 
-## 3️⃣ Entrada de datos
-
-Se utiliza la función `input()` para pedir:
+se utilizara input:
 - Usuario
 - Contraseña
 
-Esto permite que el usuario escriba sus datos desde el teclado.
-
+Esto permitara que el usuario escriba sus datos desde el teclado.
+´´´input
 ---
 
 ## 4️⃣ Validaciones del usuario
