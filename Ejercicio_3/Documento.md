@@ -19,13 +19,16 @@ while intentos < 3
 este se pondrá para iniciar un bucle, un bucle es una orden para que se repita mientras los intentos sean menores a 3 
 
 
-## tercer paso 
+## Tercer paso 
 
 se utilizara input:
 - Usuario
 - Contraseña
 
-´´´ input
+```
+usuario = input("usuario: ")
+contraseña = input("contraseña: ")
+```
 
 Esto permitara que el usuario escriba sus datos desde el teclado.
 
