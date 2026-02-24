@@ -102,3 +102,6 @@ Este bloque sirve para controlar los errores y limitar el acceso a solo 3 intent
 
 Este programa permite controlar el acceso con usuario y contraseña ,Usando condiciones y un contador para limitar los intentos a solo tres 
 También verifica que la contraseña cumpla con reglas básicas de seguridad tambien para saber ciclos, validaciones y condiciones 
+
+
+<img width="1036" height="864" alt="Captura de pantalla 2026-02-24 002923" src="https://github.com/user-attachments/assets/bb45e2bb-feef-4f6e-958f-f2430019d9a8" />
