@@ -2,16 +2,18 @@
 
 ## esto se utilizara para crear un control de acceso 
 
-## paso a paso 
-
+# paso a paso 
+## Primer paso
 Se empiezan creando la variable:
 
-intentos = 0
+```
+intentos=0
+```
 
 Esta variable que utilizaremos servira para contar cuántas veces el usuario se equivoca.
 
 
-## siguiente paso
+## segundo paso
 
 Se utiliza:
 
