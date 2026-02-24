@@ -25,8 +25,10 @@ se utilizara input:
 - Usuario
 - Contraseña
 
+´´´ input
+
 Esto permitara que el usuario escriba sus datos desde el teclado.
-´´´input
+
 ---
 
 ## 4️⃣ Validaciones del usuario
