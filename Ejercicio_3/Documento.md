@@ -1,8 +1,7 @@
 # Explicación del Programa 
 
-## esto se utilizara para crear un control de acceso 
-
-# paso a paso 
+## Esto se utilizara para crear un control de acceso 
+ 
 ## Primer paso
 Se empiezan creando la variable:
 
