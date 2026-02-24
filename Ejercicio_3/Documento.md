@@ -1,4 +1,4 @@
-# Explicación del Programa 
+# Explicación 
 
 ## Esto se utilizara para crear un control de acceso 
  
