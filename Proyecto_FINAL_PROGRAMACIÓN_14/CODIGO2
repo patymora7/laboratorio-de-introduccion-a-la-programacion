@@ -1,0 +1,376 @@
+import tkinter as tk
+from tkinter import ttk, messagebox
+
+# =========================
+# PRODUCTOS DE LA CAFETERÍA
+# =========================
+
+productos = [
+
+    # Pasteles
+    {"nombre": "Pastel de Chocolate", "tipo": "Pasteles", "precio": 85},
+    {"nombre": "Cheesecake de Fresa", "tipo": "Pasteles", "precio": 95},
+    {"nombre": "Pastel Red Velvet", "tipo": "Pasteles", "precio": 90},
+    {"nombre": "Pastel de Vainilla", "tipo": "Pasteles", "precio": 80},
+    {"nombre": "Pay de Limón", "tipo": "Pasteles", "precio": 75},
+
+    # Galletas
+    {"nombre": "Galleta Chispas de Chocolate", "tipo": "Galletas", "precio": 30},
+    {"nombre": "Galleta Red Velvet", "tipo": "Galletas", "precio": 35},
+    {"nombre": "Galleta de Avena", "tipo": "Galletas", "precio": 28},
+    {"nombre": "Galleta Oreo", "tipo": "Galletas", "precio": 32},
+    {"nombre": "Galleta de Mantequilla", "tipo": "Galletas", "precio": 25},
+
+    # Bebidas
+    {"nombre": "Café Latte", "tipo": "Bebidas", "precio": 65},
+    {"nombre": "Capuchino", "tipo": "Bebidas", "precio": 70},
+    {"nombre": "Chocolate Caliente", "tipo": "Bebidas", "precio": 60},
+    {"nombre": "Té Chai", "tipo": "Bebidas", "precio": 58},
+    {"nombre": "Matcha Latte", "tipo": "Bebidas", "precio": 75},
+
+    # Frappés
+    {"nombre": "Frappé Mocha", "tipo": "Frappés", "precio": 85},
+    {"nombre": "Frappé Oreo", "tipo": "Frappés", "precio": 90},
+    {"nombre": "Frappé Caramelo", "tipo": "Frappés", "precio": 88},
+    {"nombre": "Frappé Fresa", "tipo": "Frappés", "precio": 80},
+    {"nombre": "Frappé Vainilla", "tipo": "Frappés", "precio": 82}
+]
+
+# Lista del carrito
+carrito = []
+
+# Categorías
+tipos = ["Pasteles", "Galletas", "Bebidas", "Frappés"]
+
+
+# =========================
+# MOSTRAR PRODUCTOS
+# =========================
+
+def mostrar_por_categoria():
+
+    categoria = combo_categoria.get()
+
+    listbox_productos.delete(0, tk.END)
+
+    for producto in productos:
+
+        if producto["tipo"] == categoria:
+
+            texto = f"{producto['nombre']} - ${producto['precio']}"
+
+            listbox_productos.insert(tk.END, texto)
+
+
+# =========================
+# AGREGAR AL CARRITO
+# =========================
+
+def agregar_al_carrito():
+
+    seleccion = listbox_productos.curselection()
+
+    if not seleccion:
+        messagebox.showwarning(
+            "Aviso",
+            "Seleccione un producto del menú."
+        )
+        return
+
+    texto = listbox_productos.get(seleccion[0])
+
+    nombre = texto.split(" - $")[0]
+
+    for producto in productos:
+
+        if producto["nombre"] == nombre:
+
+            carrito.append(producto)
+
+            listbox_carrito.insert(tk.END, texto)
+
+            actualizar_total()
+
+            break
+
+
+# =========================
+# ACTUALIZAR TOTAL
+# =========================
+
+def actualizar_total():
+
+    total = sum(p["precio"] for p in carrito)
+
+    label_total.config(text=f"Total a pagar: ${total}")
+
+
+# =========================
+# AGREGAR PRODUCTO NUEVO
+# =========================
+
+def agregar_producto_manual():
+
+    nombre = entry_nombre.get().strip()
+
+    tipo = combo_tipo_nuevo.get()
+
+    precio_str = entry_precio.get().strip()
+
+    if not nombre or not precio_str:
+
+        messagebox.showerror(
+            "Error",
+            "El nombre y precio son obligatorios."
+        )
+
+        return
+
+    try:
+
+        precio = float(precio_str)
+
+    except ValueError:
+
+        messagebox.showerror(
+            "Error",
+            "El precio debe ser un número."
+        )
+
+        return
+
+    productos.append({
+        "nombre": nombre,
+        "tipo": tipo,
+        "precio": precio
+    })
+
+    messagebox.showinfo(
+        "Producto agregado",
+        f"'{nombre}' fue agregado al menú."
+    )
+
+    entry_nombre.delete(0, tk.END)
+
+    entry_precio.delete(0, tk.END)
+
+    if combo_categoria.get() == tipo:
+        mostrar_por_categoria()
+
+
+# =========================
+# INTERFAZ
+# =========================
+
+root = tk.Tk()
+
+root.title("Sweet Coffee Café")
+
+root.geometry("700x600")
+
+root.configure(bg="#f8ede3")
+
+
+# =========================
+# TÍTULO PRINCIPAL
+# =========================
+
+titulo = tk.Label(
+    root,
+    text="☕ SWEET COFFEE CAFÉ ☕",
+    font=("Arial", 20, "bold"),
+    bg="#f8ede3",
+    fg="#5c3d2e"
+)
+
+titulo.pack(pady=10)
+
+
+# =========================
+# CATEGORÍAS
+# =========================
+
+frame_categoria = tk.LabelFrame(
+    root,
+    text="Menú por Categoría",
+    bg="#f8ede3",
+    fg="#5c3d2e",
+    font=("Arial", 10, "bold")
+)
+
+frame_categoria.pack(padx=10, pady=5, fill="x")
+
+combo_categoria = ttk.Combobox(
+    frame_categoria,
+    values=tipos,
+    state="readonly"
+)
+
+combo_categoria.pack(side="left", padx=5)
+
+combo_categoria.set(tipos[0])
+
+boton_mostrar = tk.Button(
+    frame_categoria,
+    text="Mostrar Productos",
+    bg="#d0b49f",
+    fg="black",
+    command=mostrar_por_categoria
+)
+
+boton_mostrar.pack(side="left", padx=5)
+
+
+# =========================
+# LISTA DE PRODUCTOS
+# =========================
+
+listbox_productos = tk.Listbox(
+    root,
+    height=12,
+    font=("Arial", 11),
+    bg="white"
+)
+
+listbox_productos.pack(
+    padx=10,
+    pady=10,
+    fill="both",
+    expand=True
+)
+
+
+# =========================
+# BOTÓN AGREGAR
+# =========================
+
+boton_agregar = tk.Button(
+    root,
+    text="Agregar a la Orden",
+    bg="#c8b6a6",
+    font=("Arial", 11, "bold"),
+    command=agregar_al_carrito
+)
+
+boton_agregar.pack(pady=5)
+
+
+# =========================
+# CARRITO
+# =========================
+
+frame_carrito = tk.LabelFrame(
+    root,
+    text="🛒 Orden del Cliente",
+    bg="#f8ede3",
+    fg="#5c3d2e",
+    font=("Arial", 10, "bold")
+)
+
+frame_carrito.pack(
+    padx=10,
+    pady=10,
+    fill="x"
+)
+
+listbox_carrito = tk.Listbox(
+    frame_carrito,
+    height=6,
+    font=("Arial", 10)
+)
+
+listbox_carrito.pack(
+    side="left",
+    fill="both",
+    expand=True,
+    padx=5,
+    pady=5
+)
+
+label_total = tk.Label(
+    frame_carrito,
+    text="Total a pagar: $0",
+    font=("Arial", 12, "bold"),
+    bg="#f8ede3",
+    fg="#5c3d2e"
+)
+
+label_total.pack(side="right", padx=15)
+
+
+# =========================
+# AGREGAR NUEVOS PRODUCTOS
+# =========================
+
+frame_nuevo = tk.LabelFrame(
+    root,
+    text="➕ Agregar Nuevo Producto",
+    bg="#f8ede3",
+    fg="#5c3d2e",
+    font=("Arial", 10, "bold")
+)
+
+frame_nuevo.pack(
+    padx=10,
+    pady=10,
+    fill="x"
+)
+
+# Nombre
+tk.Label(
+    frame_nuevo,
+    text="Nombre:",
+    bg="#f8ede3"
+).grid(row=0, column=0, padx=5, pady=5)
+
+entry_nombre = tk.Entry(frame_nuevo)
+
+entry_nombre.grid(row=0, column=1)
+
+
+# Tipo
+tk.Label(
+    frame_nuevo,
+    text="Categoría:",
+    bg="#f8ede3"
+).grid(row=0, column=2, padx=5)
+
+combo_tipo_nuevo = ttk.Combobox(
+    frame_nuevo,
+    values=tipos,
+    state="readonly"
+)
+
+combo_tipo_nuevo.grid(row=0, column=3)
+
+combo_tipo_nuevo.set(tipos[0])
+
+
+# Precio
+tk.Label(
+    frame_nuevo,
+    text="Precio:",
+    bg="#f8ede3"
+).grid(row=0, column=4, padx=5)
+
+entry_precio = tk.Entry(frame_nuevo)
+
+entry_precio.grid(row=0, column=5)
+
+
+# Botón agregar producto
+tk.Button(
+    frame_nuevo,
+    text="Agregar Producto",
+    bg="#d0b49f",
+    command=agregar_producto_manual
+).grid(row=0, column=6, padx=10)
+
+
+# =========================
+# INICIAR PROGRAMA
+# =========================
+
+mostrar_por_categoria()
+
+root.mainloop()
